@@ -119,10 +119,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
         if (gestureDetector.onTouchEvent(e)){
-            View child = mRecyclerView.findChildViewUnder(e.getX(),e.getY());
+            View child = rv.findChildViewUnder(e.getX(),e.getY());
             if(child != null){
-                int position = mRecyclerView.getChildAdapterPosition(child);
-                Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
+                int position = rv.getChildAdapterPosition(child);
+                Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
+                //intent.putExtra("nom",child.get);
+                startActivityForResult(intent, 1);
                 return true;
             }
         }
