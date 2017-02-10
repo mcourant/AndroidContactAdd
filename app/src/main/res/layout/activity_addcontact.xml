@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/size_text">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
+
+    <TextView
+        android:text="@string/edition_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/infos"
+        android:textSize="@dimen/size_text"
+        android:id="@+id/TitleDescEdition" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/editTextSize"
+        android:inputType="textPersonName"
+        android:hint="@string/name"
+        android:background="@color/editText"
+        android:layout_marginTop="@dimen/size_text"
+        android:textColorHint="@color/editTextHint"
+        android:padding="@dimen/size_paddingEdittext"
+        android:textCursorDrawable="@color/black"
+        android:ems="10"
+        android:id="@+id/nameEditText" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/editTextSize"
+        android:inputType="textPersonName"
+        android:background="@color/editText"
+        android:textColorHint="@color/editTextHint"
+        android:layout_marginTop="@dimen/size_text"
+        android:padding="@dimen/size_paddingEdittext"
+        android:textCursorDrawable="@color/black"
+        android:hint="@string/pr_nom"
+        android:ems="10"
+        android:id="@+id/prenomEditText" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/editTextSize"
+        android:inputType="textPersonName"
+        android:background="@color/editText"
+        android:textColorHint="@color/editTextHint"
+        android:layout_marginTop="@dimen/size_text"
+        android:textCursorDrawable="@color/black"
+        android:padding="@dimen/size_paddingEdittext"
+        android:layout_marginBottom="@dimen/size_text"
+        android:hint="@string/profession"
+        android:ems="10"
+        android:id="@+id/professionEditText" />
+
+    <Button
+        android:text="@string/valider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/vert"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_text"
+        android:id="@+id/validateContact" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

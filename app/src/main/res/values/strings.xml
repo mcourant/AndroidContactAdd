@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ContactTime</string>
+    <string name="ajouter_un_contact">AJOUTER UN CONTACT</string>
+    <string name="edition">Edition</string>
+    <string name="contact">Mes contacts</string>
+    <string name="edition_text">Merci de saisir les informations demandées :</string>
+    <string name="name">Name</string>
+    <string name="pr_nom">Prénom</string>
+    <string name="profession">Profession</string>
+    <string name="valider">VALIDER</string>
+</resources>
