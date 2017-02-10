@@ -39,4 +39,11 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleViewHolder> {
     public int getItemCount() {
         return allPeople.size();
     }
+
+    public void onItemDismiss(int position){
+        if(position > -1){
+            allPeople.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
 }

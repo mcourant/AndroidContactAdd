@@ -1,5 +1,6 @@
 package com.example.maximecours.mescontact.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -34,11 +35,11 @@ public class AddContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(AddContactActivity.this, MainActivity.class);
+                Intent intent = new Intent();
                 intent.putExtra("nom",editTextNom.getText().toString());
                 intent.putExtra("prenom",editTextPrenom.getText().toString());
                 intent.putExtra("profession",editTextProfession.getText().toString());
-                startActivity(intent);
+                setResult(Activity.RESULT_OK, intent);
                 finish();
 
             }
