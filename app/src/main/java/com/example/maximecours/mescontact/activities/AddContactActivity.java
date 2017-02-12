@@ -73,10 +73,9 @@ public class AddContactActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         Intent intent = new Intent(AddContactActivity.this, MainActivity.class);
         startActivity(intent);
-
+        super.onBackPressed();
     }
 
 }

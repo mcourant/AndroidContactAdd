@@ -45,13 +45,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         if(savedInstanceState != null){
             allPeopleMain = savedInstanceState.getParcelableArrayList("LIST");
         }else{
-            allPeopleMain.add(new People("EnRetard","Henrick","Pôle-Emplois"));
             allPeopleMain.add(new People("Moinet","Maxime","Mac"));
             allPeopleMain.add(new People("Pichard","Thomas","MasterOfIT"));
-            allPeopleMain.add(new People("Saint-Martin","Matthieu","Ingenieur IOT"));
-            allPeopleMain.add(new People("Saint-Martin","Matthieu","Ingenieur IOT"));
-            allPeopleMain.add(new People("Saint-Martin","Matthieu","Ingenieur IOT"));
-            allPeopleMain.add(new People("Saint-Martin","Matthieu","Ingenieur IOT"));
             allPeopleMain.add(new People("Saint-Martin","Matthieu","Ingenieur IOT"));
         }
 
@@ -104,7 +99,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         if (requestCode == 1 && resultCode == Activity.RESULT_OK)
         {
             int position = data.getIntExtra("position",-1);
-            Log.e("position", String.valueOf(position));
             String nom = data.getStringExtra("nom");
             String prenom = data.getStringExtra("prenom");
             String profession = data.getStringExtra("profession");
@@ -137,7 +131,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
                 int position = rv.getChildAdapterPosition(child);
                 People test;
                 test = allPeopleMain.get(position);
-                Log.e("TESTS",test.toString());
                 Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
                 intent.putExtra("peopleselect",test);
                 intent.putExtra("position",position);
