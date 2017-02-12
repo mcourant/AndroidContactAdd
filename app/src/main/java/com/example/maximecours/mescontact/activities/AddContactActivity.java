@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import com.example.maximecours.mescontact.R;
 import com.example.maximecours.mescontact.items.People;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by MaximeCours on 07/02/2017.
@@ -33,6 +35,19 @@ public class AddContactActivity extends AppCompatActivity {
         editTextNom = (EditText) findViewById(R.id.nameEditText);
         editTextPrenom = (EditText) findViewById(R.id.prenomEditText);
         editTextProfession = (EditText) findViewById(R.id.professionEditText);
+
+
+
+        if(getIntent() != null){
+            Intent intent = getIntent();
+            People test = (People) intent.getParcelableExtra("peopleselect");
+            if(test != null){
+                editTextNom.setText(test.getName());
+                editTextPrenom.setText(test.getPrenom());
+                editTextProfession.setText(test.getProfession());
+            }
+        }
+
         validate = (Button) findViewById(R.id.validateContact);
 
         validate.setOnClickListener(new View.OnClickListener() {

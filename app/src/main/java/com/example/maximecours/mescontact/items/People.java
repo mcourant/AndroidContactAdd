@@ -19,7 +19,11 @@ public class People implements Parcelable {
         this.profession = profession;
     }
 
-    protected People(Parcel in) {
+    public People(){
+
+    }
+
+    public People(Parcel in) {
         name = in.readString();
         prenom = in.readString();
         profession = in.readString();
@@ -45,6 +49,14 @@ public class People implements Parcelable {
         return name+" "+prenom;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
 
     @Override
     public int describeContents() {
@@ -56,5 +68,14 @@ public class People implements Parcelable {
         dest.writeString(name);
         dest.writeString(prenom);
         dest.writeString(profession);
+    }
+
+    @Override
+    public String toString() {
+        return "People{" +
+                "name='" + name + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", profession='" + profession + '\'' +
+                '}';
     }
 }

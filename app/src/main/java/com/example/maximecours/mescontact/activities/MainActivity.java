@@ -122,8 +122,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
             View child = rv.findChildViewUnder(e.getX(),e.getY());
             if(child != null){
                 int position = rv.getChildAdapterPosition(child);
+                People test;
+                test = allPeopleMain.get(position);
+                Log.e("TESTS",test.toString());
                 Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
-                //intent.putExtra("nom",child.get);
+                intent.putExtra("peopleselect",test);
                 startActivityForResult(intent, 1);
                 return true;
             }
