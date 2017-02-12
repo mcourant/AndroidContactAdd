@@ -57,6 +57,17 @@ public class People implements Parcelable {
         return prenom;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
 
     @Override
     public int describeContents() {

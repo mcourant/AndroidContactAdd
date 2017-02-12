@@ -26,6 +26,7 @@ public class AddContactActivity extends AppCompatActivity {
     private EditText editTextPrenom;
     private EditText editTextProfession;
     Button validate;
+    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class AddContactActivity extends AppCompatActivity {
         if(getIntent() != null){
             Intent intent = getIntent();
             People test = (People) intent.getParcelableExtra("peopleselect");
+            position = intent.getIntExtra("position",-1);
             if(test != null){
                 editTextNom.setText(test.getName());
                 editTextPrenom.setText(test.getPrenom());
@@ -58,6 +60,7 @@ public class AddContactActivity extends AppCompatActivity {
                 intent.putExtra("nom",editTextNom.getText().toString());
                 intent.putExtra("prenom",editTextPrenom.getText().toString());
                 intent.putExtra("profession",editTextProfession.getText().toString());
+                intent.putExtra("position",position);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
 
@@ -67,4 +70,13 @@ public class AddContactActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(AddContactActivity.this, MainActivity.class);
+        startActivity(intent);
+
+    }
+
 }

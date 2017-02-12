@@ -103,16 +103,29 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == Activity.RESULT_OK)
         {
+            int position = data.getIntExtra("position",-1);
+            Log.e("position", String.valueOf(position));
             String nom = data.getStringExtra("nom");
             String prenom = data.getStringExtra("prenom");
             String profession = data.getStringExtra("profession");
-            allPeopleMain.add(new People(nom,prenom,profession));
+            if(position == -1){
+                allPeopleMain.add(new People(nom,prenom,profession));
+            }else{
+                People tmp = allPeopleMain.get(position);
+                tmp.setName(nom);
+                tmp.setPrenom(prenom);
+                tmp.setProfession(profession);
+            }
             mAdapter.notifyDataSetChanged();
         }
     }
 
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
 
-
+        allPeopleMain = savedInstanceState.getParcelableArrayList("LIST");
+    }
 
 
     @Override
@@ -127,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
                 Log.e("TESTS",test.toString());
                 Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
                 intent.putExtra("peopleselect",test);
+                intent.putExtra("position",position);
                 startActivityForResult(intent, 1);
                 return true;
             }
